@@ -17,38 +17,84 @@ using namespace std;
 */
 
 int main() {
+	/*BSTree myBST = BSTree();*/
 	BSTree myBST = BSTree();
-	BSTree myBST2 = BSTree();
 
-	// Insert into BST using non-recursive functioin
-	myBST.root = myBST.insertNode(myBST.root, 50);
-	myBST.root = myBST.insertNode(myBST.root, 80);
-	myBST.root = myBST.insertNode(myBST.root, 90);
-	myBST.root = myBST.insertNode(myBST.root, 30);
-	myBST.root = myBST.insertNode(myBST.root, 60);
-	myBST.root = myBST.insertNode(myBST.root, 40);
-	myBST.root = myBST.insertNode(myBST.root, 10);
-	myBST.root = myBST.insertNode(myBST.root, 85);
-	myBST.root = myBST.insertNode(myBST.root, 45);
+	//NOT USED FOR ASSIGNMENT
+	//// Insert into BST using non-recursive functioin
+	//myBST.root = myBST.insertNode(myBST.root, 50);
+	//myBST.root = myBST.insertNode(myBST.root, 80);
+	//myBST.root = myBST.insertNode(myBST.root, 90);
+	//myBST.root = myBST.insertNode(myBST.root, 30);
+	//myBST.root = myBST.insertNode(myBST.root, 60);
+	//myBST.root = myBST.insertNode(myBST.root, 40);
+	//myBST.root = myBST.insertNode(myBST.root, 10);
+	//myBST.root = myBST.insertNode(myBST.root, 85);
+	//myBST.root = myBST.insertNode(myBST.root, 45);
+
+	//// Display BST using preorder traversal
+	//myBST.preorder(myBST.root);
+	//cout << endl;
+	//END NOT USED FOR ASSIGNMENT
+
+	// Insert into BST using recursive functioin
+	myBST.root = myBST.insertNode2(myBST.root, 50);
+	myBST.root = myBST.insertNode2(myBST.root, 80);
+	myBST.root = myBST.insertNode2(myBST.root, 90);
+	myBST.root = myBST.insertNode2(myBST.root, 30);
+	myBST.root = myBST.insertNode2(myBST.root, 60);
+	myBST.root = myBST.insertNode2(myBST.root, 40);
+	myBST.root = myBST.insertNode2(myBST.root, 10);
+	myBST.root = myBST.insertNode2(myBST.root, 85);
+	myBST.root = myBST.insertNode2(myBST.root, 45);
 
 	// Display BST using preorder traversal
 	myBST.preorder(myBST.root);
-	cout << endl;
+	//Finding the max value
+	Node* myNodeMax = myBST.findMax(myBST.root);
+	cout << "\nThe max is = " << myNodeMax->key << endl;
+	//Finding the min value
+	Node* myNodeMin = myBST.findMin(myBST.root);
+	cout << "The min is = " << myNodeMin->key << endl;
+	system("pause");
 
-	// Insert into BST using recursive functioin
-	myBST2.root = myBST2.insertNode2(myBST2.root, 50);
-	myBST2.root = myBST2.insertNode2(myBST2.root, 80);
-	myBST2.root = myBST2.insertNode2(myBST2.root, 90);
-	myBST2.root = myBST2.insertNode2(myBST2.root, 30);
-	myBST2.root = myBST2.insertNode2(myBST2.root, 60);
-	myBST2.root = myBST2.insertNode2(myBST2.root, 40);
-	myBST2.root = myBST2.insertNode2(myBST2.root, 10);
-	myBST2.root = myBST2.insertNode2(myBST2.root, 85);
-	myBST2.root = myBST2.insertNode2(myBST2.root, 45);
-
+	//Delete 85
+	myBST.deleteNode(myBST.root, 85);
 	// Display BST using preorder traversal
-	myBST.preorder(myBST2.root);
-	cout << endl;
+	myBST.preorder(myBST.root);
+	//Finding the max value
+	Node* myNodeMax2 = myBST.findMax(myBST.root);
+	cout << "\nThe max is = " << myNodeMax2->key << endl;
+	//Finding the min value
+	Node* myNodeMin2 = myBST.findMin(myBST.root);
+	cout << "The min is = " << myNodeMin2->key << endl;
+	system("pause");
+
+	//Delete 90
+	myBST.deleteNode(myBST.root, 90);
+	// Display BST using preorder traversal
+	myBST.preorder(myBST.root);
+	//Finding the max value
+	Node* myNodeMax3 = myBST.findMax(myBST.root);
+	cout << "\nThe max is = " << myNodeMax3->key << endl;
+	//Finding the min value
+	Node* myNodeMin3 = myBST.findMin(myBST.root);
+	cout << "The min is = " << myNodeMin3->key << endl;
+	system("pause");
+
+	//Delete 10
+	myBST.deleteNode(myBST.root, 10);
+	// Display BST using preorder traversal
+	myBST.preorder(myBST.root);
+	//Finding the max value
+	Node* myNodeMax4 = myBST.findMax(myBST.root);
+	cout << "\nThe max is = " << myNodeMax4->key << endl;
+	//Finding the min value
+	Node* myNodeMin4 = myBST.findMin(myBST.root);
+	cout << "The min is = " << myNodeMin4->key << endl;
+	system("pause");
+
+	//Quit program
 	return 0;
 }
 
