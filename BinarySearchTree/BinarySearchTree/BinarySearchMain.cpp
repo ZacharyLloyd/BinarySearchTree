@@ -3,6 +3,7 @@
  */
 #include <iostream>
 #include "BinarySearchTree.h"
+#include "BinarySearchTreeFunc.h"
 using namespace std;
 
 /* input data stream:  50 80 90 30 60 40 10 85 45
@@ -18,7 +19,7 @@ using namespace std;
 
 int main() {
 	/*BSTree myBST = BSTree();*/
-	BSTree myBST = BSTree();
+	BSTree<double> myBST = BSTree<double>();
 
 	//NOT USED FOR ASSIGNMENT
 	//// Insert into BST using non-recursive functioin
@@ -51,10 +52,10 @@ int main() {
 	// Display BST using preorder traversal
 	myBST.preorder(myBST.root);
 	//Finding the max value
-	Node* myNodeMax = myBST.findMax(myBST.root);
+	Node<double>* myNodeMax = myBST.findMax(myBST.root);
 	cout << "\nThe max is = " << myNodeMax->key << endl;
 	//Finding the min value
-	Node* myNodeMin = myBST.findMin(myBST.root);
+	Node<double>* myNodeMin = myBST.findMin(myBST.root);
 	cout << "The min is = " << myNodeMin->key << endl;
 	system("pause");
 
@@ -63,10 +64,10 @@ int main() {
 	// Display BST using preorder traversal
 	myBST.preorder(myBST.root);
 	//Finding the max value
-	Node* myNodeMax2 = myBST.findMax(myBST.root);
+	Node<double>* myNodeMax2 = myBST.findMax(myBST.root);
 	cout << "\nThe max is = " << myNodeMax2->key << endl;
 	//Finding the min value
-	Node* myNodeMin2 = myBST.findMin(myBST.root);
+	Node<double>* myNodeMin2 = myBST.findMin(myBST.root);
 	cout << "The min is = " << myNodeMin2->key << endl;
 	system("pause");
 
@@ -75,10 +76,10 @@ int main() {
 	// Display BST using preorder traversal
 	myBST.preorder(myBST.root);
 	//Finding the max value
-	Node* myNodeMax3 = myBST.findMax(myBST.root);
+	Node<double>* myNodeMax3 = myBST.findMax(myBST.root);
 	cout << "\nThe max is = " << myNodeMax3->key << endl;
 	//Finding the min value
-	Node* myNodeMin3 = myBST.findMin(myBST.root);
+	Node<double>* myNodeMin3 = myBST.findMin(myBST.root);
 	cout << "The min is = " << myNodeMin3->key << endl;
 	system("pause");
 
@@ -87,10 +88,10 @@ int main() {
 	// Display BST using preorder traversal
 	myBST.preorder(myBST.root);
 	//Finding the max value
-	Node* myNodeMax4 = myBST.findMax(myBST.root);
+	Node<double>* myNodeMax4 = myBST.findMax(myBST.root);
 	cout << "\nThe max is = " << myNodeMax4->key << endl;
 	//Finding the min value
-	Node* myNodeMin4 = myBST.findMin(myBST.root);
+	Node<double>* myNodeMin4 = myBST.findMin(myBST.root);
 	cout << "The min is = " << myNodeMin4->key << endl;
 	system("pause");
 

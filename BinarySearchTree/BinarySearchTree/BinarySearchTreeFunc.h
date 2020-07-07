@@ -1,11 +1,14 @@
+#ifndef BinarySearchTreeFunc_H
+#define BinarySearchTreeFunc_H
 #include<iostream>
 #include "BinarySearchTree.h"
 using namespace std;
 
 // create a new node
-Node* BSTree::getNode(int val) {
-	Node* newNode;
-	newNode = new Node();
+template <class T>
+Node<T>* BSTree<T>::getNode(T val) {
+	Node<T>* newNode;
+	newNode = new Node<T>();
 	newNode->key = val;
 	newNode->left = NULL;
 	newNode->right = NULL;
@@ -13,11 +16,12 @@ Node* BSTree::getNode(int val) {
 }
 
 // insert a new node into BST - non recursive function
-Node* BSTree::insertNode(Node* root, int val) {
+template <class T>
+Node<T>* BSTree<T>::insertNode(Node<T>* root, T val) {
 	if (root == NULL)  // BST was empty
 		return getNode(val);  // create the first node
 
-	Node* tmpNode = root;
+	Node<T>* tmpNode = root;
 	while (tmpNode != NULL) {  // loop until end of tree nodes
 		// process right node
 		if (tmpNode->key < val) {
@@ -48,7 +52,8 @@ Node* BSTree::insertNode(Node* root, int val) {
 }
 
 // insert a new node into BST - recursive function
-Node* BSTree::insertNode2(Node* root, int val) {
+template <class T>
+Node<T>* BSTree<T>::insertNode2(Node<T>* root, T val) {
 	// found Null node to insert new one
 	if (root == NULL)
 		return getNode(val);
@@ -65,7 +70,8 @@ Node* BSTree::insertNode2(Node* root, int val) {
 }
 
 // preorder traversal - root, left, right
-void BSTree::preorder(Node* root) {
+template<class T>
+void BSTree<T>::preorder(Node<T>* root) {
 	// stop when Null node is reached
 	if (root == NULL)
 		return;
@@ -80,7 +86,8 @@ void BSTree::preorder(Node* root) {
 	preorder(root->right);
 }
 //Find the max value
-Node* BSTree::findMax(Node* root) 
+template<class T>
+Node<T>* BSTree<T>::findMax(Node<T>* root) 
 {
 	//While the right pointer is not null cycle through the tree
 	while (root->right != nullptr) 
@@ -92,7 +99,8 @@ Node* BSTree::findMax(Node* root)
 	return root;
 }
 //Find the min value
-Node* BSTree::findMin(Node* root)
+template<class T>
+Node<T>* BSTree<T>::findMin(Node<T>* root)
 {
 	//While the left pointer is not null cycle through the tree
 	while (root->left != nullptr)
@@ -103,19 +111,21 @@ Node* BSTree::findMin(Node* root)
 	//Return the min value
 	return root;
 }
-Node* BSTree::deleteNode(Node* root, int key) 
+//Delte node function
+template<class T>
+Node<T>* BSTree<T>::deleteNode(Node<T>* root, T key)
 {
 	//Pointer to store parent node of current node
-	Node* parent = nullptr;
+	Node<T>* parent = nullptr;
 	//Start with root node
-	Node* currentNode = root;
+	Node<T>* currentNode = root;
 	//Serach key in BST and set its parent pointer
 	searchKey(currentNode, key, parent);
 	//Return if key is not found in the tree
 	if (currentNode == nullptr)
 		return NULL;
 	//case 1: node has no child
-	if (currentNode->left == nullptr && currentNode->right == nullptr) 
+	if (currentNode->left == nullptr && currentNode->right == nullptr)
 	{
 		/*if node to be deleted is not a root node, then set its
 		parent left/right child to null*/
@@ -134,12 +144,12 @@ Node* BSTree::deleteNode(Node* root, int key)
 
 	}
 	//case 2: node has one child
-	else if (currentNode->left && currentNode->right) 
+	else if (currentNode->left && currentNode->right)
 	{
 		//find its in-order successor node
-		Node* successor = findMin(currentNode->right);
+		Node<T>* successor = findMin(currentNode->right);
 		//Store successor value
-		int value = successor->key;
+		T value = successor->key;
 		/*Recursively delete the successor. Note that the successor
 		will have at-most one child(right child)*/
 		deleteNode(root, successor->key);
@@ -147,11 +157,11 @@ Node* BSTree::deleteNode(Node* root, int key)
 		currentNode->key = value;
 	}
 	//case 3: node with 2 children
-	else 
+	else
 	{
 		//find child node
-		Node* child = (currentNode->left) ? currentNode->left : currentNode->right;
-		/*if node to be deleted is not a root node, then set 
+		Node<T>* child = (currentNode->left) ? currentNode->left : currentNode->right;
+		/*if node to be deleted is not a root node, then set
 		its parent to our child*/
 		if (currentNode != root)
 		{
@@ -167,7 +177,9 @@ Node* BSTree::deleteNode(Node* root, int key)
 		free(currentNode);
 	}
 }
-void BSTree::searchKey(Node*& current, int key, Node*& parent)
+//Search key function
+template<class T>
+void BSTree<T>::searchKey(Node<T>*& current, T key, Node<T>*& parent)
 {
 	//traverse the tree and search for the key
 	while (current != nullptr && current->key != key) {
@@ -183,3 +195,4 @@ void BSTree::searchKey(Node*& current, int key, Node*& parent)
 			current = current->right;
 	}
 }
+#endif  //BinarySearchTreeFunc_H

@@ -18,8 +18,8 @@
     <ClCompile Include="BinarySearchMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BinarySearchTree.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="BinarySearchTreeFunc.h">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

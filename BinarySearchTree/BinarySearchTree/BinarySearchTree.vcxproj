@@ -124,7 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BinarySearchMain.cpp" />
-    <ClCompile Include="BinarySearchTree.cpp" />
+    <ClCompile Include="BinarySearchTreeFunc.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinarySearchTree.h" />
